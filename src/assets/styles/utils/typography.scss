@@ -1,0 +1,25 @@
+.heading-1, .heading-2, .heading-3, .heading-4 {
+  text-transform: uppercase;
+  line-height: 1;
+  user-select: none;
+}
+
+.heading-1 {
+  font-size: 40px;
+  font-weight: 800;
+}
+
+.heading-2 {
+  font-size: 32px;
+  font-weight: 800;
+}
+
+.heading-3 {
+  font-size: 20px;
+  font-weight: 700;
+}
+
+.heading-4 {
+  font-size: 14px;
+  font-weight: 700;
+}

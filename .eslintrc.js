@@ -25,6 +25,7 @@ module.exports = {
     "import/prefer-default-export": "off",
     "import/extensions": "off",
     "@typescript-eslint/no-use-before-define": "off",
-    "import/no-extraneous-dependencies": ["error", {"devDependencies": false, "optionalDependencies": false, "peerDependencies": false}]
+    "import/no-extraneous-dependencies": ["error", {"devDependencies": false, "optionalDependencies": false, "peerDependencies": false}],
+    "@typescript-eslint/ban-ts-comment": "off"
   },
 };
