@@ -31,7 +31,6 @@
     </div>
 
     <div class="content">
-      {{ connectedAddress }}
       <slot />
     </div>
   </div>

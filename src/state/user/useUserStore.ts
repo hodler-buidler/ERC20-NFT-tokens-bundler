@@ -1,5 +1,5 @@
 import { defineStore, storeToRefs } from 'pinia';
-import { OpenseaAPI, Asset, FetchAssetsParams } from '@/api/open-sea';
+import { OpenseaAPI, Asset, FetchAssetsParams, MAX_RETRIEVE_ASSETS_LIMIT } from '@/api/open-sea';
 import { Web3Provider } from '@/types/app';
 import { isApprovedForAll } from '@/api/smart-contracts/ERC1155';
 import { getTokensBundlerContractAddress } from '@/api/smart-contracts/tokens-bundler';
@@ -38,9 +38,15 @@ export const useUserStore = defineStore('user', {
       try {
         this.setIsAssetsLoading(true);
         this.setAssets([]);
-        let { assets } = await OpenseaAPI.fetchAssets(params, {
-          chainId: getCurrentChainId() || DEFAULT_CHAIN.id,
-        });
+        let { assets } = await OpenseaAPI.fetchAssets(
+          {
+            limit: MAX_RETRIEVE_ASSETS_LIMIT,
+            ...params,
+          },
+          {
+            chainId: getCurrentChainId() || DEFAULT_CHAIN.id,
+          },
+        );
 
         if ((approvedOnly || notApprovedOnly) && walletProvider.value) {
           const approvalStatusesPromises = assets.map((asset) => {
