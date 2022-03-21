@@ -19,12 +19,6 @@ export const useUserStore = defineStore('user', {
     assets: [],
     isAssetsLoading: true,
   }),
-  getters: {
-    ownedAssets(state): Asset[] {
-      const { connectedAddress } = storeToRefs(useWalletsStore());
-      return state.assets.filter((asset) => asset.owner.address === connectedAddress.value);
-    },
-  },
   actions: {
     setAssets(assets: Asset[]) {
       this.assets = assets;

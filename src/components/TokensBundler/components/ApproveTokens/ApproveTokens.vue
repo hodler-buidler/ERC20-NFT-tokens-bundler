@@ -32,10 +32,10 @@
 
       const userStore = useUserStore();
       const tokensBundlerStore = useTokensBundlerStore();
-      const { ownedAssets, isAssetsLoading } = storeToRefs(userStore);
+      const { assets, isAssetsLoading } = storeToRefs(userStore);
 
       const assetsOptions = computed(() => {
-        return ownedAssets.value.map((asset) => ({
+        return assets.value.map((asset) => ({
           value: asset.id,
           label: asset.asset_contract.name,
         }));
@@ -43,7 +43,7 @@
       const selectedAssetsIds = ref<number[]>([]);
       const selectedAssets = computed(() => {
         const result = selectedAssetsIds.value
-          .map((assetId) => ownedAssets.value.find((asset) => asset.id == assetId))
+          .map((assetId) => assets.value.find((asset) => asset.id == assetId))
           .filter((asset) => !!asset);
         return result as Asset[];
       });
