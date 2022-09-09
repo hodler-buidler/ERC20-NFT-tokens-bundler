@@ -1,4 +1,5 @@
-# ERC20-NFT-tokens-bundler
+# ERC1155-NFT-tokens-bundler
+DEMO: https://hodler-buidler.github.io/tokens-bundler
 
 ## Project setup
 ```
